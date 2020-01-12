@@ -13,3 +13,6 @@ Inputs = Port.S1, Port.S2... etc.
 
 ## Run
 When robot is connected with USB, select Debug tab and select "Download and run", which is configured in `.vscode/launch.json`-file. Then press play-button and main file will be downloaded and executed on a connected robot.
+
+## Troubleshooting
+Sometimes the cables are not properly connected or are broken. This can result in a message like `ev3dev2 Device not found (OutputA)`. Try re-connecting the cable.

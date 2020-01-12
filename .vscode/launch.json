@@ -8,7 +8,13 @@
     "name": "Download and Run",
     "type": "ev3devBrowser",
     "request": "launch",
-    "program": "/home/robot/${workspaceRootFolderName}/main.py"
+    "program": "/home/robot/${workspaceRootFolderName}/myprogram"
+  },
+  {
+    "name": "Line Follower - Download and Run",
+    "type": "ev3devBrowser",
+    "request": "launch",
+    "program": "/home/robot/${workspaceRootFolderName}/modes/line-follower.py"
   }
   ]
 }
