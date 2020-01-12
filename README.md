@@ -1,10 +1,11 @@
 # Robotics Guild Codebase
 
 ## Getting started
-1. Install requirements: `pip3 install python-ev3dev2`
-2. If you don't already have it, install the EV3DEV device browser plugin to your VS Code.
-3. Connect the ev3dev with your VS Code via USB.
-4. From the sidebar find ev3dev device browser and connect to the EV3 brick.
+1. Download the latest ev3dev image and flash the SD card, see tutorial in: https://www.ev3dev.org/docs/getting-started/
+2. Install requirements: `pip3 install python-ev3dev2`
+3. If you don't already have it, install the EV3DEV device browser plugin to your VS Code.
+4. Connect the ev3dev with your VS Code via USB.
+5. From the sidebar find ev3dev device browser and connect to the EV3 brick.
 
 ## Ports
 Outputs = Port.A, Port.B.... etc.  
