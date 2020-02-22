@@ -1,21 +1,33 @@
 #!/usr/bin/env python3
-
+import os
 from ev3dev2.display import Display
 from textwrap import wrap
 from time import sleep
+import ev3dev2.fonts as fonts
+import logging
 
 from PIL import Image, ImageDraw, ImageFont, ImageFilter
 
+logging.getLogger().setLevel(logging.INFO)
+
+# fileDir = os.path.dirname(os.path.realpath('__file__'))
+# logging.info(fileDir)
+# code_font_path = os.path.join(fileDir, 'assets/CODE2000.ttf')
+
+# Some display docs: https://python-ev3dev.readthedocs.io/en/stable/display.html
 lcd = Display()
 
-def show_text(string, font_name='courB24', font_width=15, font_height=24):
+def show_text(string, font=fonts.load('luBS14'), font_width=15, font_height=24):
     lcd.clear()
-    strings = wrap(string, width=int(180/font_width))
-    for i in range(len(strings)):
-        x_val = 89-font_width/2*len(strings[i])
-        y_val = 63-(font_height+1)*(len(strings)/2-i)
-        lcd.text_pixels(strings[i], False, x_val, y_val, font=font_name)
+    logging.info('Fonts available: {}'.format(fonts.available()))
+    lcd.draw.text((font_width, font_height), string, font=font)
     lcd.update()
+
+# https://www.fileformat.info/info/unicode/char/0ca0/index.htm
+face = 'ಠ_ಠ'.encode('utf-8')
+#show_text(face, ImageFont.truetype(code_font_path, 15), 30, 30) # TODO: fix OSError: cannot open resource
+show_text(face, fonts.load('luBS14'), 30, 30) # TODO: find better default font?
+sleep(20)
 
 # def show_eyes(image):
 #     lcd.clear()
@@ -26,11 +38,3 @@ def show_text(string, font_name='courB24', font_width=15, font_height=24):
 # image = Love.bmp
 # show_eyes()
 # sleep(2)
-
-
-unicode_font = ImageFont.truetype("DejaVuSansMono-Bold.ttf", 36)
-
-# face = u'\u0CA0\uFF3F\u0CA0'
-face = 'ಠ_ಠ'
-show_text(face, unicode_font, 9, 14)
-sleep(10)
