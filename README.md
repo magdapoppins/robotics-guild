@@ -20,3 +20,11 @@ Download Commander App from App store or Google play. Turn bluetooth on from the
 
 ## Troubleshooting
 Sometimes the cables are not properly connected or are broken. This can result in a message like `ev3dev2 Device not found (OutputA)`. Try re-connecting the cable.
+
+## Very simple robot building example
+
+If you just want to build a simple robot and get quickly to coding, here's a simple example.
+
+![Robo back](robo/robo1.png)
+![Robo small wheel](robo/robo2.png)
+![Robo motors front](robo/robo3.png)
