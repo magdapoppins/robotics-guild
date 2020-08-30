@@ -5,16 +5,28 @@
   "version": "0.2.0",
   "configurations": [
   {
-    "name": "Download and Run",
+    "name": "Main",
     "type": "ev3devBrowser",
     "request": "launch",
     "program": "/home/robot/${workspaceRootFolderName}/main.py"
   },
   {
-    "name": "Line Follower - Download and Run",
+    "name": "Line Follower",
     "type": "ev3devBrowser",
     "request": "launch",
     "program": "/home/robot/${workspaceRootFolderName}/modes/line-follower.py"
+  },
+  {
+    "name": "Running around",
+    "type": "ev3devBrowser",
+    "request": "launch",
+    "program": "/home/robot/${workspaceRootFolderName}/modes/running-around.py"
+  },
+  {
+    "name": "Text to Speech",
+    "type": "ev3devBrowser",
+    "request": "launch",
+    "program": "/home/robot/${workspaceRootFolderName}/modes/speech.py"
   }
   ]
 }

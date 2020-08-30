@@ -6,6 +6,8 @@ from time import sleep
 import ev3dev2.fonts as fonts
 import logging
 
+from ev3dev2.motor import LargeMotor, MediumMotor, OUTPUT_A, OUTPUT_B, OUTPUT_C, SpeedPercent, SpeedRPM, MoveTank
+
 from PIL import Image, ImageDraw, ImageFont, ImageFilter
 
 logging.getLogger().setLevel(logging.INFO)
@@ -26,8 +28,13 @@ def show_text(string, font=fonts.load('luBS14'), font_width=15, font_height=24):
 # https://www.fileformat.info/info/unicode/char/0ca0/index.htm
 face = 'ಠ_ಠ'.encode('utf-8')
 #show_text(face, ImageFont.truetype(code_font_path, 15), 30, 30) # TODO: fix OSError: cannot open resource
-show_text(face, fonts.load('luBS14'), 30, 30) # TODO: find better default font?
-sleep(20)
+#show_text(face, fonts.load('luBS14'), 30, 30) # TODO: find better default font?
+
+logging.info('Connecting motors')
+left_motor = LargeMotor(OUTPUT_B)
+right_motor = LargeMotor(OUTPUT_C)
+while True:
+    right_motor.run_forever(speed_sp=100)
 
 # def show_eyes(image):
 #     lcd.clear()

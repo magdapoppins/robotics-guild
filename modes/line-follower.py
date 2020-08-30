@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 from time import sleep
 from ev3dev2.motor import LargeMotor, MediumMotor, OUTPUT_A, OUTPUT_B, OUTPUT_C, SpeedPercent, SpeedRPM, MoveTank
-from ev3dev2.sensor.lego import TouchSensor, ColorSensor
+from ev3dev2.sensor.lego import ColorSensor
 from ev3dev2.button import Button
 import logging
 
@@ -29,7 +29,7 @@ right_motor = LargeMotor(OUTPUT_C)
 # Connect color and touch sensors and check that they
 # are connected.
 logging.info('Connecting sensors')
-ts = TouchSensor()
+#ts = TouchSensor()
 col = ColorSensor()
 
 # Change color sensor mode
@@ -104,24 +104,24 @@ def run(power, target, kp, kd, ki, direction, minRef, maxRef):
 	previousRefRead = col.value()
 
 	while not btn.any():
-		if ts.value():
-			logging.info('Breaking loop')  # User pressed touch sensor
-			break
+		#if ts.value():
+		#	logging.info('Breaking loop')  # User pressed touch sensor
+		#	break
 		refRead = col.value()
 		error = target - (100 * ( refRead - minRef ) / ( maxRef - minRef ))
 		derivative = error - lastError
 		lastError = error
 		integral = float(0.5) * integral + error
-		
+
 		logging.info('previousRefRead {}, refRead {}, direction {}, abs {}'.format(previousRefRead, refRead, direction, abs(previousRefRead - refRead)))
-		if abs(previousRefRead - refRead) > 20 && previousRefRead < 30:
+		if abs(previousRefRead - refRead) > 20 and previousRefRead < 30:
 			# Change direction
 			#run = MoveTank(left_motor, right_motor) MAGDA WAS HERE
 			#run.on_for_rotations(-10, -10, 8)
 			logging.info('*** ASDADADDADADASSAD ***')
 			direction = direction*(-1)
 			previousRefRead = refRead
-		
+
 		course = (kp * error + kd * derivative +ki * integral) * direction
 
 		logging.info('refRead: {}, error: {}, derivative: {}, lastError: {}, integral: {}, course: {}'.format(refRead, error, derivative, lastError, integral, course))
@@ -135,4 +135,4 @@ run(power, target, kp, kd, ki, direction, minRef, maxRef)
 # Stop the motors before exiting.
 logging.info('Stopping motors')
 left_motor.stop()
-right_motor.stop()
+right_motor.stop)(
