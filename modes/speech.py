@@ -7,7 +7,7 @@ from ev3dev.ev3 import *
 
 #https://www.wavsource.com/
 Sound.play('../sounds/rubber_ducky.wav').wait()
-sleep(1)
+sleep(10)
 Sound.play('../sounds/seal.wav').wait()
 
 #Sound.play('../sounds/hello.wav').wait()
