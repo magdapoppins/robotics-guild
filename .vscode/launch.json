@@ -27,6 +27,12 @@
     "type": "ev3devBrowser",
     "request": "launch",
     "program": "/home/robot/${workspaceRootFolderName}/modes/speech.py"
+  },
+  {
+    "name": "Halloween claw",
+    "type": "ev3devBrowser",
+    "request": "launch",
+    "program": "/home/robot/${workspaceRootFolderName}/modes/halloween-claw.py"
   }
   ]
 }
